@@ -1,0 +1,7 @@
+{
+  "title": "Example Training Renewal Project",
+  "start_date": "2030-01-07",
+  "num_weeks": 10,
+  "file_path": "./examples/example-project-tracker.xlsx",
+  "last_updated": "2030-01-07"
+}
