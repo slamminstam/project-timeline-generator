@@ -17,22 +17,33 @@ The script reads a structured Excel tracker, applies project status logic, and g
 - Supports GUI and headless execution modes
 - Works across Windows, macOS, and Linux/Unix
 
-## Required tracker columns
-The Excel tracker must include these columns:
+## Example tracker
+
+This repo includes a sanitized example tracker at:
+
+`examples/example-project-tracker.xlsx`
+
+It is designed to demonstrate the expected structure without exposing any client-specific information.
+
+### Required columns
+The script requires these columns:
 - `Task`
 - `Start Date`
 - `End Date`
 - `Status`
+If any of these are missing, the script will stop and report the missing fields.
 
-Optional columns supported by the script:
+### Optional columns
+The script also supports these optional columns:
 - `Task Order`
 - `Sort Key`
 - `Is Parent`
 - `DisplayLabel`
 - `Parent Slide Deck`
+These are not required to generate a timeline, but they improve structure, ordering, and display quality.
 
-## Supported statuses
-Expected status values:
+### Status values
+Expected status values include:
 - `Complete`
 - `In Progress`
 - `Pending`
@@ -41,6 +52,13 @@ Expected status values:
 The script will automatically override an item to `Overdue` when:
 - the current date is past `End Date`, and
 - the item is not marked `Complete`
+
+### Example structure
+The sample tracker demonstrates a simple phased project with:
+- parent rows for major project phases
+- child rows for individual deliverables
+- task ordering and grouping fields
+- realistic status progression across planning, build, review, and launch
 
 ## Installation
 Install dependencies with:
@@ -60,23 +78,60 @@ sudo apt install python3-tk
 ### GUI mode
 macOS / Linux:
 ```bash
-python3 Project_Timeline_Generator_v1.6.1.py
+python3 Project_Timeline_Generator.py
 ```
 
 Windows:
 ```bash
-py Project_Timeline_Generator_v1.6.1.py
+py Project_Timeline_Generator.py
 ```
 
 ### Headless mode
 ```bash
-python3 Project_Timeline_Generator_v1.6.1.py \
+python3 Project_Timeline_Generator.py \
   --headless \
   --excel "./examples/example-project-tracker.xlsx" \
   --title "Example Training Renewal Project" \
   --start-date "2025-01-06" \
   --num-weeks 18
 ```
+
+## Run the demo
+### GUI mode
+Run the script and select the example tracker when prompted:
+macOS / Linux:
+```bash
+python3 Project_Timeline_Generator.py
+````
+
+Windows:
+```
+py Project_Timeline_Generator.py
+```
+
+### Headless mode
+To run directly against the included example tracker:
+```bash
+python3 Project_Timeline_Generator.py \
+  --headless \
+  --excel "./examples/example-project-tracker.xlsx" \
+  --title "Example Training Renewal Project" \
+  --start-date "2030-01-07" \
+  --num-weeks 10
+```
+
+### What the demo generates
+The demo creates a shareable HTML timeline from the example tracker, including:
+* status-based color coding
+* phase and task visualization
+* overdue logic for incomplete past-due items
+* a built-in legend
+* an output file written alongside the tracker
+
+## Public example assets
+This repo uses sanitized example data for demonstration purposes.
+The included sample tracker and config file are intended to show how the tool works without exposing real stakeholder names, deliverables, timelines, or client reporting artifacts.
+
 
 ### Options
 * `--headless` Run without GUI prompts
