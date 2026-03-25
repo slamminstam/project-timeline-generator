@@ -40,6 +40,7 @@ The script also supports these optional columns:
 - `Is Parent`
 - `DisplayLabel`
 - `Parent Slide Deck`
+
 These are not required to generate a timeline, but they improve structure, ordering, and display quality.
 
 ### Status values
@@ -157,5 +158,3 @@ A full portfolio case study for this project lives here:
 
 ## License
 MIT
-
-````
