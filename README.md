@@ -96,6 +96,15 @@ python3 Project_Timeline_Generator.py \
   --num-weeks 18
 ```
 
+### Options
+* `--headless` Run without GUI prompts
+* `--excel` Path to the Excel tracker file
+* `--config` Optional path to a JSON config file
+* `--title` Override the project title
+* `--start-date` Override the project start date in `YYYY-MM-DD`
+* `--num-weeks` Override the number of timeline weeks to display
+* `--no-open` Generate the HTML without automatically opening it
+
 ## Run the demo
 ### GUI mode
 Run the script and select the example tracker when prompted:
@@ -131,16 +140,6 @@ The demo creates a shareable HTML timeline from the example tracker, including:
 ## Public example assets
 This repo uses sanitized example data for demonstration purposes.
 The included sample tracker and config file are intended to show how the tool works without exposing real stakeholder names, deliverables, timelines, or client reporting artifacts.
-
-
-### Options
-* `--headless` Run without GUI prompts
-* `--excel` Path to the Excel tracker file
-* `--config` Optional path to a JSON config file
-* `--title` Override the project title
-* `--start-date` Override the project start date in `YYYY-MM-DD`
-* `--num-weeks` Override the number of timeline weeks to display
-* `--no-open` Generate the HTML without automatically opening it
 
 ## Why it exists
 In delivery-heavy environments, communication overhead grows quickly when timelines shift often.
